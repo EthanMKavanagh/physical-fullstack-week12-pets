@@ -8,7 +8,7 @@ class PetList extends Component {
       <ul>
         { 
           this.props.pets.map( item =>  
-            <li>Pet:{ item.pet_name } Owner: {item.owner_name}</li>) 
+            <li key={item.id}>Pet:{ item.pet_name } Owner: {item.owner_name}</li>) 
         }
       </ul>
     )

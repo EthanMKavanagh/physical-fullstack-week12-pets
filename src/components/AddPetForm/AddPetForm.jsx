@@ -35,7 +35,7 @@ class AddPetForm extends Component {
             <option disabled value="0">Pick One!</option>
           {this.props.owners.map( owner => {
             return (
-              <option value={owner.id}>{owner.name}</option>
+              <option key={owner.id} value={owner.id}>{owner.name}</option>
             )
           })}
         </select>
