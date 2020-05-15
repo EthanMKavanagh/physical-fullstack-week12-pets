@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Pets & Owners</h1>
+        <h1>Pets &amp; Owners</h1>
         <AddPetForm />
         <PetList />
       </div>
