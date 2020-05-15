@@ -11,35 +11,37 @@ import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* rootSaga() {
-  yield takeEvery('FETCH_OWNERS', fetchOwners)
-  yield takeEvery('FETCH_PETS', fetchPets)
-  yield takeEvery('ADD_PET', addPet)
+  yield takeEvery('FETCH_OWNERS', fetchOwners);
+  yield takeEvery('FETCH_PETS', fetchPets);
+  yield takeEvery('ADD_PET', addPet);
 }
 
 function* fetchOwners() {
   try {
     let ownersResponse = yield axios.get('/api/owners');
-    yield put({type: 'SET_OWNERS', payload: ownersResponse.data })
+    yield put({type: 'SET_OWNERS', payload: ownersResponse.data });    
   } catch(err) {
-    console.log(err)
+    console.log(err);
   }
 }
+
 
 function* fetchPets() {
   try {
     let petsResponse = yield axios.get('/api/pets');
-    yield put({type: 'SET_PETS', payload: petsResponse.data })
+    yield put({type: 'SET_PETS', payload: petsResponse.data });
   } catch(err) {
-    console.log(err)
+    console.log(err);
   }
 }
 
+
 function* addPet(action) {
   try {
-    yield axios.post('/api/pets', action.payload)
-    yield put ({type: 'FETCH_PETS'})
+    yield axios.post('/api/pets', action.payload);
+    yield put ({type: 'FETCH_PETS'});
   } catch(err) {
-    console.log(err)
+    console.log(err);
   }
 }
 
@@ -48,7 +50,7 @@ const owners = (state = [], action) => {
     case 'SET_OWNERS':
       return action.payload;
     default:
-      return state
+      return state;
   }
 }
 
@@ -57,7 +59,7 @@ const pets = (state = [], action) => {
     case 'SET_PETS':
       return action.payload;
     default:
-      return state
+      return state;
   }
 }
 
