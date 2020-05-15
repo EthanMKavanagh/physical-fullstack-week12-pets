@@ -15,9 +15,9 @@ class PetList extends Component {
   }
 }
 
-const putReduxStateOnProps = (redux) => {
+const putReduxStateOnProps = (reduxState) => {
   return {
-    pets : redux.pets
+    pets : reduxState.pets
   }
 }
 
